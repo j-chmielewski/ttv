@@ -63,6 +63,7 @@ fn get_token() -> Token {
 fn main() {
     let matches = configure_clap();
     let token = get_token();
+    println!();
     for channel in matches.values_of("channels").unwrap() {
         let client = reqwest::blocking::Client::new();
         let streams: Streams = client.get(&format!("{}{}", API_URL, channel))
@@ -74,9 +75,17 @@ fn main() {
         .unwrap();
 
         if streams.data.len() > 0 {
-            println!("{:30} {}", channel, "Online".bright_green())
+            let user = &streams.data[0];
+            println!(
+                "{:30} {:7} {} [{}] {}",
+                channel,
+                "Online".bright_green().bold(),
+                user.game_name.bright_white().bold(),
+                user.viewer_count,
+                user.title.bright_black()
+            )
         } else  {
-            println!("{:30} {}", channel, "Offline".bright_red())
+            println!("{:30} {:7}", channel, "Offline".bright_red().bold())
         }
     }
 }
