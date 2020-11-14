@@ -1,0 +1,19 @@
+[package]
+authors = ["Jacek Chmielewski <jchmielewski@teonite.com>"]
+edition = "2018"
+name = "ttv"
+version = "0.1.0"
+[dependencies]
+clap = "*"
+colored = "*"
+scraper = "*"
+serde_derive = "*"
+serde_json = "*"
+
+[dependencies.serde]
+version = "*"
+features = ["derive"]
+
+[dependencies.reqwest]
+features = ["blocking", "json"]
+version = "*"
