@@ -1,6 +1,6 @@
 use std::collections::HashMap;
 use std::env;
-use clap::{App, Arg, ArgMatches};
+use clap::{App, Arg, ArgMatches, AppSettings};
 use colored::*;
 use serde::Deserialize;
 
@@ -36,6 +36,7 @@ struct Streams {
 
 fn configure_clap<'a>() -> ArgMatches<'a> {
     App::new("ttv")
+        .global_setting(AppSettings::ColoredHelp)
         .author("Jacek Chmielewski <jchmielewski@teonite.com>")
         .version(env!("CARGO_PKG_VERSION"))
         .args(&[

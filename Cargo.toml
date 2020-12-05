@@ -2,18 +2,19 @@
 authors = ["Jacek Chmielewski <jchmielewski@teonite.com>"]
 edition = "2018"
 name = "ttv"
-version = "0.1.0"
+version = "0.2.0"
+
 [dependencies]
-clap = "*"
-colored = "*"
-scraper = "*"
-serde_derive = "*"
-serde_json = "*"
+clap = "2.33.3"
+colored = "2.0.0"
+scraper = "0.12.0"
+serde_derive = "1.0.117"
+serde_json = "1.0.60"
 
 [dependencies.serde]
-version = "*"
+version = "1.0.117"
 features = ["derive"]
 
 [dependencies.reqwest]
 features = ["blocking", "json"]
-version = "*"
+version = "0.10.9"
